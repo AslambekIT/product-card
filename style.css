@@ -75,7 +75,7 @@
   justify-content: center;
 }
 
-.first-headline {
+.headline {
   font-weight: 400;
   font-size: 70px;
   line-height: 78px;
@@ -84,8 +84,9 @@
   height: 78px;
   margin: 220px 0px 110px 132px;
 }
-.first-bg-container {
-  background-image: url("/verstka/images/bg-flowers.png");
+
+.bg-container {
+  background-image: url("/images/bg-flowers.png");
   background-position: left top;
   background-size: 790px 697px;
   align-content: center;
