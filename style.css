@@ -93,3 +93,12 @@
   background-repeat: no-repeat;
   margin-left: 170px;
 }
+
+.btn-list {
+  display: flex;
+  gap: 70px;
+}
+
+.dark-color {
+  background-color: #8989b1;
+}
