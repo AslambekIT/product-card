@@ -98,3 +98,7 @@
   display: flex;
   gap: 70px;
 }
+
+.dark-color {
+  background-color: #8989b1;
+}

@@ -1,13 +1,13 @@
 //Покраска всех карточек
 
 const productCards = document.querySelectorAll('.card-container');
-const AllCardColorSwitchBtn = document.querySelector('#all-card-color-switch-btn');
+const allCardColorSwitchBtn = document.querySelector('#all-card-color-switch-btn');
 
 const colorHashBg = '#dcdce8ff'
 const colorHash = '#acacceff'
 
 
-AllCardColorSwitchBtn.addEventListener('click', () => {
+allCardColorSwitchBtn.addEventListener('click', () => {
   productCards.forEach((card) => card.style.backgroundColor = colorHashBg)
 
 })
@@ -57,24 +57,8 @@ headline.addEventListener('mouseover', () => {
 
 // Задание 7
 
-const changeColorBtn = document.querySelector('#change-color-btn');
-
-changeColorBtn.classList.add('colorLight');
-
-changeColorBtn.colorLight = '#e8e8e8da';
-changeColorBtn.colorDark = '#7d7db0ff';
-
-
-changeColorBtn.style.backgroundColor = changeColorBtn.colorLight;
+const changeColorBtn = document.getElementById('change-color-btn');
 
 changeColorBtn.addEventListener('click', () => {
-  if (changeColorBtn.classList.contains('colorLight')) {
-    changeColorBtn.classList.remove('colorLight');
-    changeColorBtn.classList.add('colorDark');
-    changeColorBtn.style.backgroundColor = changeColorBtn.colorDark;
-  } else {
-    changeColorBtn.classList.remove('colorDark');
-    changeColorBtn.classList.add('colorLight');
-    changeColorBtn.style.backgroundColor = changeColorBtn.colorLight;
-  }
+  changeColorBtn.classList.toggle('dark-color');
 });
