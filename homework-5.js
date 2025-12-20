@@ -42,12 +42,12 @@ const product = "Чайник";
 const cost = 1999;
 const balance = 2700;
 
-const buyProduct =
+const purchaseMessage =
   balance >= cost
     ? `${product} куплен. Спасибо за покупку!`
     : `Недостаточно средств. Не хватает ${cost - balance} рублей`;
 
-console.log(buyProduct);
+console.log(purchaseMessage);
 
 
 // Реализована функция для определения состояния контейнера
@@ -69,6 +69,6 @@ function showContainerStatus(items) {
 // Объявлены три произвольные переменные
 // для демонстрации работы с разными типами данных
 
-const FREEFALL_SPEED = 9.8; 
+const FREEFALL_SPEED = 9.8;
 const currentMode = "standby";
 const isDeviceActive = false;
