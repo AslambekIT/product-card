@@ -21,15 +21,15 @@ displayWeather("Атаги", "+9");
 // со скоростью звука, определяя, является ли она дозвуковой,
 // сверхзвуковой или равной скорости звука
 
-const REFERENCE_WIND_SPEED = 343;
+const SPEED_OF_SOUND = 343;
 
-function checkWindSpeed(speed) {
-  if (speed > REFERENCE_WIND_SPEED) {
-    console.log("Скорость выше нормы");
-  } else if (speed < REFERENCE_WIND_SPEED) {
-    console.log("Скорость ниже нормы");
+function showSpeed(speed) {
+  if (speed > SPEED_OF_SOUND) {
+    console.log("Сверхзвуковая скорость");
+  } else if (speed < SPEED_OF_SOUND) {
+    console.log("Дозвуковая скорость");
   } else {
-    console.log("Нормальная скорость");
+    console.log("Скорость звука");
   }
 }
 
@@ -38,16 +38,16 @@ function checkWindSpeed(speed) {
 // Реализована проверка возможности покупки
 // в зависимости от текущего баланса
 
-const item = "Чайник";
+const product = "Чайник";
 const cost = 1999;
 const balance = 2700;
 
-const purchaseStatus =
+const buyProduct =
   balance >= cost
-    ? `${item} куплен. Спасибо за покупку!`
+    ? `${product} куплен. Спасибо за покупку!`
     : `Недостаточно средств. Не хватает ${cost - balance} рублей`;
 
-console.log(purchaseStatus);
+console.log(buyProduct);
 
 
 // Реализована функция для определения состояния контейнера
@@ -69,6 +69,6 @@ function showContainerStatus(items) {
 // Объявлены три произвольные переменные
 // для демонстрации работы с разными типами данных
 
-const MAX_TEMPERATURE = 120;
+const FREEFALL_SPEED = 9.8; 
 const currentMode = "standby";
 const isDeviceActive = false;
