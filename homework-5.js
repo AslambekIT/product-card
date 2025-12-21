@@ -12,7 +12,6 @@ showLocationWeather("Гудермес", "+12");
 
 const displayWeather = (location, temp) =>
   console.log(`Сейчас в ${location} температура ${temp}\u00B0C`);
-
 displayWeather("Атаги", "+9");
 
 
@@ -42,12 +41,12 @@ const product = "Чайник";
 const cost = 1999;
 const balance = 2700;
 
-const purchaseMessage =
+const purchaseProduct =
   balance >= cost
     ? `${product} куплен. Спасибо за покупку!`
     : `Недостаточно средств. Не хватает ${cost - balance} рублей`;
 
-console.log(purchaseMessage);
+console.log(purchaseProduct);
 
 
 // Реализована функция для определения состояния контейнера
