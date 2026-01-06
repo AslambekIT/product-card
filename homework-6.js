@@ -117,11 +117,11 @@ console.log(allBooks);
 // 10. Использовал метод map и добавил новое свойство isModern
 // Книга считается современной, если выпущена после 2010 года
 
-function markModernBooks(bookList) {
+function getModernBooks(bookList) {
   return bookList.map(book => ({
     ...book,
     isModern: book.releaseYear > 2010,
   }));
 }
 
-console.log(markModernBooks(allBooks));
+console.log(getModernBooks(allBooks));
