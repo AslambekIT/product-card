@@ -4,7 +4,7 @@ import { comments } from "./comments.js";
 // чтобы остались числа начиная с 5.
 
 const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const newNumbersArray = numbersArray.filter((number) => number >= 5);
+const newNumbersArray = numbersArray.filter(number => number >= 5);
 
 console.log(newNumbersArray);
 
@@ -17,7 +17,7 @@ const kitchenItemsArray = [
   "Блендер",
   "Тостер",
   "Духовка",
-  "Хлеборезка"
+  "Хлеборезка",
 ];
 
 const hasBlender = kitchenItemsArray.includes("Блендер");
@@ -27,12 +27,12 @@ console.log(hasBlender);
 // Реализовал функцию для переворота массива и использовал её
 // для двух созданных выше массивов.
 
-function getReversedArray(array) {
+function reverseArray(array) {
   return array.reverse();
 }
 
-console.log(getReversedArray(numbersArray));
-console.log(getReversedArray(kitchenItemsArray));
+console.log(reverseArray(numbersArray));
+console.log(reverseArray(kitchenItemsArray));
 
 
 // В comments.js поместил первые 10 объектов массива комментариев
@@ -51,21 +51,20 @@ console.log(filteredComComments);
 // Преобразовал массив так, чтобы у комментариев с id ≤ 5 был postId: 2,
 // а у остальных — postId: 1.
 
-const idComments = comments.map(comment => {
-  if (comment.id <= 5) {
-    comment.postId = 2;
-  } else {
-    comment.postId = 1;
-  }
-  return comment;
-});
+const idComments = comments.map(comment => ({
+  ...comment,
+  postId: comment.id <= 5 ? 2 : 1,
+}));
 
 console.log(idComments);
 
 
 // Создал новый массив, содержащий только id и name.
 
-const shortCommentProfile = comments.map(({ id, name }) => ({ id, name }));
+const shortCommentProfile = comments.map(comment => ({
+  id: comment.id,
+  name: comment.name,
+}));
 
 console.log(shortCommentProfile);
 
