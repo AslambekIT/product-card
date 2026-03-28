@@ -26,8 +26,9 @@ function renderProducts(productsToRender) {
     const productClone = productTemplate.content.cloneNode(true);
 
     // Я заполняю данные карточки значениями из объекта продукта.
-    productClone.querySelector(".product-image").src =
-      `images/diamaint/${product.img}.png`;
+    // ПРАВКА: убрано лишнее .png, так как оно уже есть в данных (products.js)
+    productClone.querySelector(".product-img").src =
+      `images/${product.img}`;
 
     productClone.querySelector(".product-category").textContent =
       product.skinType;

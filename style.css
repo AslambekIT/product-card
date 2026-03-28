@@ -102,3 +102,11 @@
 .dark-color {
   background-color: #dcdce8ff;
 }
+
+#product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
