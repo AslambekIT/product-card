@@ -1,45 +1,41 @@
-// Я импортирую массив продуктов из отдельного файла products.js.
+// Импортирую массив продуктов из отдельного файла products.js.
 // Это позволяет разделить данные и логику приложения.
 
 import { products } from "./products.js";
 
 
-// Я получаю доступ к шаблону карточки и контейнеру,
+// Получаю доступ к шаблону карточки и контейнеру,
 // в который будут вставляться готовые карточки.
 
 const productTemplate = document.getElementById("product-template");
 const productList = document.getElementById("product-list");
 
 
-// Я создаю функцию renderProducts,
+// Создаю функцию renderProducts,
 // которая принимает массив продуктов
 // и рендерит их на страницу.
 
 function renderProducts(productsToRender) {
-  // Перед рендером я очищаю контейнер,
-  // чтобы избежать дублирования карточек.
+
   productList.innerHTML = "";
 
   productsToRender.forEach((product) => {
 
-    // Я клонирую содержимое template для каждой карточки.
     const productClone = productTemplate.content.cloneNode(true);
 
-    // Я заполняю данные карточки значениями из объекта продукта.
-    // ПРАВКА: убрано лишнее .png, так как оно уже есть в данных (products.js)
     productClone.querySelector(".product-img").src =
-      `images/${product.img}`;
+      `images/${product.img}.png`;
 
     productClone.querySelector(".product-category").textContent =
       product.skinType;
 
     productClone.querySelector(".product-name").textContent =
       product.name;
-
+      
     productClone.querySelector(".product-description").textContent =
       product.description;
 
-    // Я формирую список ингредиентов динамически.
+    // Формирую список ингредиентов динамически.
     const compoundList = productClone.querySelector(".product-compound");
 
     product.ingredients.forEach((item) => {
@@ -49,7 +45,7 @@ function renderProducts(productsToRender) {
       compoundList.appendChild(li);
     });
 
-    // Я устанавливаю цену продукта.
+    // Устанавливаю цену продукта.
     productClone.querySelector(".product-price").textContent =
       `${product.price} ₽`;
 
@@ -59,15 +55,15 @@ function renderProducts(productsToRender) {
 }
 
 
-// Используя метод reduce(), я создаю объект,
+// Используя метод reduce(), я создаю МАССИВ объектов,
 // где ключом является название продукта,
 // а значением — его описание.
-// Я вывожу полученный объект в консоль для проверки результата.
+// Вывожу полученный массив в консоль для проверки результата.
 
 const productDescriptions = products.reduce((acc, product) => {
-  acc[product.name] = product.description;
+  acc.push({ [product.name]: product.description });
   return acc;
-}, {});
+}, []);
 
 console.log(productDescriptions);
 
