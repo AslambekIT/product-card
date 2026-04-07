@@ -31,7 +31,7 @@ function renderProducts(productsToRender) {
 
     productClone.querySelector(".product-name").textContent =
       product.name;
-      
+
     productClone.querySelector(".product-description").textContent =
       product.description;
 
@@ -54,11 +54,10 @@ function renderProducts(productsToRender) {
   });
 }
 
-
 // Используя метод reduce(), я создаю МАССИВ объектов,
 // где ключом является название продукта,
 // а значением — его описание.
-// Вывожу полученный массив в консоль для проверки результата.
+// Я вывожу полученный массив в консоль для проверки результата.
 
 const productDescriptions = products.reduce((acc, product) => {
   acc.push({ [product.name]: product.description });
@@ -67,12 +66,10 @@ const productDescriptions = products.reduce((acc, product) => {
 
 console.log(productDescriptions);
 
-
-// Я создаю функцию getCardQuantity,
+// Создаю функцию getCardQuantity,
 // которая запрашивает у пользователя количество карточек
 // для отображения и проверяет корректность ввода.
-// Я проверяю, входит ли число в допустимый диапазон.
-// Если ввод некорректный, я уведомляю пользователя.
+// Проверяю, входит ли число в допустимый диапазон. Добавил рекурсию.
 
 function getCardQuantity() {
   const input = prompt("Сколько карточек отобразить? От 1 до 5");
@@ -83,9 +80,8 @@ function getCardQuantity() {
   }
 
   alert("Введите число от 1 до 5");
-  return 0;
+  return getCardQuantity(); 
 }
-
 
 // После полной загрузки DOM я:
 // 1. Получаю количество карточек
@@ -95,7 +91,8 @@ function getCardQuantity() {
 document.addEventListener("DOMContentLoaded", () => {
   const count = getCardQuantity();
 
-  if (!count) return;
-
-  renderProducts(products.slice(0, count));
+  // Если получили число, рендерим карточки
+  if (count > 0) {
+    renderProducts(products.slice(0, count));
+  }
 });
