@@ -73,6 +73,11 @@ console.log(productDescriptions);
 
 function getCardQuantity() {
   const input = prompt("Сколько карточек отобразить? От 1 до 5");
+
+  if (input === null) {
+    return 0;
+  }
+
   const quantity = Number(input);
 
   if (quantity >= 1 && quantity <= 5) {
@@ -83,6 +88,7 @@ function getCardQuantity() {
   return getCardQuantity(); 
 }
 
+
 // После полной загрузки DOM я:
 // 1. Получаю количество карточек
 // 2. Ограничиваю массив методом slice()
@@ -91,7 +97,6 @@ function getCardQuantity() {
 document.addEventListener("DOMContentLoaded", () => {
   const count = getCardQuantity();
 
-  // Если получили число, рендерим карточки
   if (count > 0) {
     renderProducts(products.slice(0, count));
   }
