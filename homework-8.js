@@ -54,11 +54,7 @@ function renderProducts(productsToRender) {
   });
 }
 
-// Используя метод reduce(), я создаю МАССИВ объектов,
-// где ключом является название продукта,
-// а значением — его описание.
-// Я вывожу полученный массив в консоль для проверки результата.
-
+// Используя метод reduce(), я создаю массив объектов
 const productDescriptions = products.reduce((acc, product) => {
   acc.push({ [product.name]: product.description });
   return acc;
@@ -66,16 +62,11 @@ const productDescriptions = products.reduce((acc, product) => {
 
 console.log(productDescriptions);
 
-// Создаю функцию getCardQuantity,
-// которая запрашивает у пользователя количество карточек
-// для отображения и проверяет корректность ввода.
-// Проверяю, входит ли число в допустимый диапазон. Добавил рекурсию.
-
 function getCardQuantity() {
   const input = prompt("Сколько карточек отобразить? От 1 до 5");
 
   if (input === null) {
-    return 0;
+    return 5; 
   }
 
   const quantity = Number(input);
@@ -88,16 +79,8 @@ function getCardQuantity() {
   return getCardQuantity(); 
 }
 
-
-// После полной загрузки DOM я:
-// 1. Получаю количество карточек
-// 2. Ограничиваю массив методом slice()
-// 3. Передаю его в функцию рендера
-
 document.addEventListener("DOMContentLoaded", () => {
   const count = getCardQuantity();
-
-  if (count > 0) {
-    renderProducts(products.slice(0, count));
-  }
+  
+  renderProducts(products.slice(0, count));
 });
