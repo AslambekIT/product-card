@@ -1,4 +1,4 @@
-import { comments } from "./comments.js";
+import { comments } from "./comments.js"
 
 // Создал массив чисел от 1 до 10 и отфильтровал его так,
 // чтобы остались числа начиная с 5.
